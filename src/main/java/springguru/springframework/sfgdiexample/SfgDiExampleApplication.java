@@ -3,16 +3,17 @@ package springguru.springframework.sfgdiexample;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import springguru.springframework.sfgdiexample.controllers.ConstructorInjectedController;
-import springguru.springframework.sfgdiexample.controllers.MyController;
-import springguru.springframework.sfgdiexample.controllers.PropertyInjectedController;
-import springguru.springframework.sfgdiexample.controllers.SetterInjectedController;
+import springguru.springframework.sfgdiexample.controllers.*;
 
 @SpringBootApplication
 public class SfgDiExampleApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SfgDiExampleApplication.class, args);
+
+		System.out.println("----- Profiles -----");
+		I18nController i18nController = ctx.getBean(I18nController.class);
+		System.out.println(i18nController.sayGreeting());
 
 		System.out.println("----- Primary -----");
 		MyController myController = ctx.getBean(MyController.class);
@@ -31,5 +32,4 @@ public class SfgDiExampleApplication {
 		System.out.println(constructorInjectedController.getGreeting());
 
 	}
-
 }
