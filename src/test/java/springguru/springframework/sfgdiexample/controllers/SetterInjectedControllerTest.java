@@ -2,7 +2,7 @@ package springguru.springframework.sfgdiexample.controllers;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import springguru.springframework.sfgdiexample.services.GreetingServiceImpl;
+import springguru.springframework.sfgdiexample.services.ConstructorInjectedGreetingService;
 
 class SetterInjectedControllerTest {
     SetterInjectedController injectedController;
@@ -10,7 +10,7 @@ class SetterInjectedControllerTest {
     @BeforeEach
     void setUp() {
         injectedController = new SetterInjectedController();
-        injectedController.setGreetingService(new GreetingServiceImpl());
+        injectedController.setGreetingService(new ConstructorInjectedGreetingService());
     }
 
     @Test
