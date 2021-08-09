@@ -10,7 +10,7 @@ public class SfgDiExampleApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SfgDiExampleApplication.class, args);
-		MyController myController = (MyController) ctx.getBean(MyController.class);
+		MyController myController = ctx.getBean(MyController.class);
 
 		System.out.println(myController.sayHello());
 	}
