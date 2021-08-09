@@ -1,7 +1,9 @@
 package springguru.springframework.sfgdiexample.controllers;
 
+import org.springframework.stereotype.Controller;
 import springguru.springframework.sfgdiexample.services.GreetingService;
 
+@Controller
 public class ConstructorInjectedController {
     private final GreetingService greetingService;
 
