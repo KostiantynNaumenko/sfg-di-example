@@ -11,7 +11,6 @@ import springguru.springframework.sfgdiexample.services.*;
 @Configuration
 public class GreetingServiceConfig {
 
-
     @Bean
     EnglishGreetingRepository englishGreetingRepository(){
         return new EnglishGreetingRepositoryImpl();
