@@ -4,12 +4,19 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import springguru.springframework.sfgdiexample.controllers.*;
+import springguru.springframework.sfgdiexample.datasource.FakeDataSource;
+import springguru.springframework.sfgdiexample.pets.controllers.PetController;
 
 @SpringBootApplication
 public class SfgDiExampleApplication {
 
 	public static void main(String[] args) {
 		ApplicationContext ctx = SpringApplication.run(SfgDiExampleApplication.class, args);
+
+		PetController petController = ctx.getBean("petController", PetController.class);
+		System.out.println("--- The Best Pet is ---");
+		System.out.println(petController.whichPetIsTheBest());
+		System.out.println();
 
 		System.out.println("----- Profiles -----");
 		I18nController i18nController = ctx.getBean(I18nController.class);
