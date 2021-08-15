@@ -2,9 +2,9 @@ package springguru.springframework.sfgdiexample.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import springguru.springframework.sfgdiexample.services.ConstructorInjectedGreetingService;
-import springguru.springframework.sfgdiexample.services.PropertyInjectedGreetingService;
-import springguru.springframework.sfgdiexample.services.SetterInjectedGreetingService;
+import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
+import springguru.springframework.sfgdiexample.services.*;
 
 @Configuration
 public class GreetingServiceConfig {
@@ -24,18 +24,27 @@ public class GreetingServiceConfig {
         return new PropertyInjectedGreetingService();
     }
 
-    /*@Bean
+    @Bean
+    @Primary
+    PrimaryGreetingService primaryGreetingService(){
+        return new PrimaryGreetingService();
+    }
+
+    @Profile("EN")
+    @Bean("i18nGreetingService")
     I18nEnglishGreetingService i18nEnglishGreetingService(){
         return new I18nEnglishGreetingService();
     }
 
-    @Bean
+    @Profile("ES")
+    @Bean("i18nGreetingService")
     I18nSpanishGreetingService i18nSpanishGreetingService(){
         return new I18nSpanishGreetingService();
     }
 
-    @Bean
+    @Profile("default")
+    @Bean("i18nGreetingService")
     I18nUkrainianGreetingService i18nUkrainianGreetingService(){
         return new I18nUkrainianGreetingService();
-    }*/
+    }
 }
